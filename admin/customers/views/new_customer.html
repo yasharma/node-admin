@@ -1,0 +1,147 @@
+<div class="row fade-in-up">
+    <div class="col-md-12">
+        <!-- BEGIN VALIDATION STATES-->
+        <div class="portlet light portlet-fit portlet-form ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class=" icon-customer font-green"></i>
+                    <span class="caption-subject font-green sbold uppercase">Add New User</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <!-- BEGIN FORM-->
+                <form novalidate ng-submit="new_customer(newCustomerForm.$valid)" class="form-horizontal" name="newCustomerForm" ng-keydown="clear($event.target.name, newCustomerForm)">
+                    <div class="form-body">
+                        <div class="form-group form-md-line-input" 
+                        ng-class="{ 'has-error': newCustomerForm.first_name.$touched && newCustomerForm.first_name.$invalid || newCustomerForm.first_name.$invalid && newCustomerForm.$submitted }">
+                            <label class="col-md-2 control-label" for="firstname">First Name <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="first_name" ng-model="customer.first_name" class="form-control" id="firstname" placeholder="Enter your first name" ng-maxlength="20" required>
+                                <div ng-messages="newCustomerForm.first_name.$error"
+                                    ng-show="newCustomerForm.first_name.$touched || newCustomerForm.$submitted">
+                                    <span class="help-block" ng-message="required">First Name is required.</span>
+                                    <span class="help-block" ng-message="maxlength">First Name cannot be greater than 20 characters</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newCustomerForm.last_name.$touched && newCustomerForm.last_name.$invalid || newCustomerForm.last_name.$invalid && newCustomerForm.$submitted }">
+                            <label class="col-md-2 control-label" for="lastname">Last Name <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="last_name" ng-model="customer.last_name" class="form-control" id="lastname" placeholder="Enter your last name" ng-maxlength="20" required>
+                                <div ng-messages="newCustomerForm.last_name.$error"
+                                    ng-show="newCustomerForm.last_name.$touched || newCustomerForm.$submitted">
+                                    <span class="help-block" ng-message="required">Last Name is required.</span>
+                                    <span class="help-block" ng-message="maxlength">Last Name cannot be greater than 20 characters</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newCustomerForm.email.$touched && newCustomerForm.email.$invalid || newCustomerForm.email.$invalid && newCustomerForm.$submitted }">
+                            <label class="col-md-2 control-label" for="email">Email <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input type="email" name="email" ng-model="customer.email" class="form-control" id="email" placeholder="Enter your email address" ng-pattern="/^([a-zA-Z0-9_\.\-])+\@(([A-Za-z0-9\-])+\.)+([a-zA-Z]{2,3})+$/" ng-maxlength="100" required>
+                                <div ng-messages="newCustomerForm.email.$error"
+                                    ng-show="newCustomerForm.email.$touched || newCustomerForm.$submitted">
+                                    <span class="help-block" ng-message="required">Email is required.</span>
+                                    <span class="help-block" ng-message="pattern">Enter valid email address</span>
+                                    <span class="help-block" ng-message="maxlength">Email cannot be greater than 100 characters</span>
+                                    <span class="help-block" ng-message="unique">This email is already exists</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newCustomerForm.phone.$touched && newCustomerForm.phone.$invalid || newCustomerForm.phone.$invalid && newCustomerForm.$submitted }">
+                            <label class="col-md-2 control-label" for="phone">Phone <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="phone" ng-model="customer.phone" class="form-control" id="phone" placeholder="Enter your phone" ng-maxlength="20" ui-mask="999-999-9999"  ui-mask-placeholder ui-mask-placeholder-char="_" required>
+                                <div ng-messages="newCustomerForm.phone.$error"
+                                    ng-show="newCustomerForm.phone.$touched || newCustomerForm.$submitted">
+                                    <span class="help-block" ng-message="required">Phone is required.</span>
+                                    <span class="help-block" ng-message="maxlength">Phone cannot be greater than 20 characters</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newCustomerForm.address.$touched && newCustomerForm.address.$invalid || newCustomerForm.address.$invalid && newCustomerForm.$submitted }">
+                            <label class="col-md-2 control-label" for="address">Address</label>
+                            <div class="col-md-10">
+                                <input type="text" name="address" ng-model="customer.address" class="form-control" id="address" placeholder="Enter your address" ng-maxlength="20">
+                                <div ng-messages="newCustomerForm.address.$error"
+                                    ng-show="newCustomerForm.address.$touched || newCustomerForm.$submitted">
+                                    <span class="help-block" ng-message="maxlength">Address must not be greater than 20 characters</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newCustomerForm.address1.$touched && newCustomerForm.address1.$invalid || newCustomerForm.address1.$invalid && newCustomerForm.$submitted }">
+                            <label class="col-md-2 control-label" for="address1">Address</label>
+                            <div class="col-md-10">
+                                <input type="text" name="address1" ng-model="customer.address1" class="form-control" id="address1" placeholder="Enter your address1" ng-maxlength="20">
+                                <div ng-messages="newCustomerForm.address1.$error"
+                                    ng-show="newCustomerForm.address1.$touched || newCustomerForm.$submitted">
+                                    <span class="help-block" ng-message="maxlength">Address must not be greater than 20 characters</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newCustomerForm.city.$touched && newCustomerForm.city.$invalid || newCustomerForm.city.$invalid && newCustomerForm.$submitted }">
+                            <label class="col-md-2 control-label" for="city">City</label>
+                            <div class="col-md-10">
+                                <input type="text" name="city" ng-model="customer.city" class="form-control" id="city" placeholder="Enter your city name" ng-maxlength="10">
+                                <div ng-messages="newCustomerForm.city.$error"
+                                    ng-show="newCustomerForm.city.$touched || newCustomerForm.$submitted">
+                                    <span class="help-block" ng-message="maxlength">City cannot be greater than 10 characters</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newCustomerForm.state.$touched && newCustomerForm.state.$invalid || newCustomerForm.state.$invalid && newCustomerForm.$submitted }">
+                            <label class="col-md-2 control-label" for="state">State or Province </label>
+                            <div class="col-md-10">
+                                <input type="text" name="state" ng-model="customer.state" class="form-control" id="state" placeholder="Enter your State or Province" ng-maxlength="20">
+                                <div ng-messages="newCustomerForm.state.$error"
+                                    ng-show="newCustomerForm.state.$touched || newCustomerForm.$submitted">
+                                    <span class="help-block" ng-message="maxlength">State name cannot be greater than 20 characters</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newCustomerForm.zipcode.$touched && newCustomerForm.zipcode.$invalid || newCustomerForm.zipcode.$invalid && newCustomerForm.$submitted }">
+                            <label class="col-md-2 control-label" for="zipcode">Zip / Postal Code </label>
+                            <div class="col-md-10">
+                                <input type="text" name="zipcode" ng-model="customer.zip_code" class="form-control" id="zipcode" placeholder="Enter your State or Province" ng-pattern="/^[a-zA-Z0-9-]{5}$/">
+                                <div ng-messages="newCustomerForm.zipcode.$error"
+                                    ng-show="newCustomerForm.zipcode.$touched || newCustomerForm.$submitted">
+                                    <span class="help-block" ng-message="pattern">That doesn't look like a valid postal code.</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newCustomerForm.profile_img.$touched && newCustomerForm.profile_img.$invalid || newCustomerForm.profile_img.$invalid && newCustomerForm.$submitted }">
+                            <label class="col-md-2 control-label" for="profile_img">Profile Image</label>
+                            <div class="col-md-10">
+                                <input ngf-pattern="'image/*'" type="file" ngf-select name="profile_img" ng-model="customer.profile_img" class="form-control" id="profile_img" placeholder="Click to select file">
+                                <!-- <div ng-messages="newCustomerForm.profile_img.$error"
+                                    ng-show="newCustomerForm.profile_img.$touched || newCustomerForm.$submitted">
+                                    <span class="help-block" ng-message="required">Profile Image is required.</span>
+                                </div>   -->  
+                            </div>
+                        </div>
+                        <div class="row" ng-show="customer.profile_img">
+                            <div class="col-sm-6 col-md-3 col-md-offset-2">
+                                <div class="thumbnail" style="width: 200px;">
+                                    <img class="img-responsive" ngf-thumbnail="customer.profile_img" alt="Preview">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-9">
+                                <button type="submit" ladda="isLoading" class="btn green">Submit</button>
+                                <a href ui-sref="customers" class="btn default">cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+        </div>
+        <!-- END VALIDATION STATES-->
+    </div>
+</div>

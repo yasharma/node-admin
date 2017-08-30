@@ -1,0 +1,162 @@
+<div class="row fade-in-up">
+    <div class="col-md-12">
+        <!-- BEGIN VALIDATION STATES-->
+        <div class="portlet light portlet-fit portlet-form ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class=" icon-user font-green"></i>
+                    <span class="caption-subject font-green sbold uppercase">Add New User</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <!-- BEGIN FORM-->
+                <form novalidate ng-submit="new_user(newUserForm.$valid)" class="form-horizontal" name="newUserForm" ng-keydown="clear($event.target.name, newUserForm)">
+                    <div class="form-body">
+                        <div class="form-group form-md-line-input" 
+                        ng-class="{ 'has-error': newUserForm.first_name.$touched && newUserForm.first_name.$invalid || newUserForm.first_name.$invalid && newUserForm.$submitted }">
+                            <label class="col-md-2 control-label" for="firstname">First Name <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="first_name" ng-model="user.first_name" class="form-control" id="firstname" placeholder="Enter your first name" ng-maxlength="20" required>
+                                <div ng-messages="newUserForm.first_name.$error"
+                                    ng-show="newUserForm.first_name.$touched || newUserForm.$submitted">
+                                    <span class="help-block" ng-message="required">First Name is required.</span>
+                                    <span class="help-block" ng-message="maxlength">First Name cannot be greater than 20 characters</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newUserForm.last_name.$touched && newUserForm.last_name.$invalid || newUserForm.last_name.$invalid && newUserForm.$submitted }">
+                            <label class="col-md-2 control-label" for="lastname">Last Name <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="last_name" ng-model="user.last_name" class="form-control" id="lastname" placeholder="Enter your last name" ng-maxlength="20" required>
+                                <div ng-messages="newUserForm.last_name.$error"
+                                    ng-show="newUserForm.last_name.$touched || newUserForm.$submitted">
+                                    <span class="help-block" ng-message="required">Last Name is required.</span>
+                                    <span class="help-block" ng-message="maxlength">Last Name cannot be greater than 20 characters</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newUserForm.email.$touched && newUserForm.email.$invalid || newUserForm.email.$invalid && newUserForm.$submitted }">
+                            <label class="col-md-2 control-label" for="email">Email <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input type="email" name="email" ng-model="user.email" class="form-control" id="email" placeholder="Enter your email address" ng-pattern="/^([a-zA-Z0-9_\.\-])+\@(([A-Za-z0-9\-])+\.)+([a-zA-Z]{2,3})+$/" ng-maxlength="100" required>
+                                <div ng-messages="newUserForm.email.$error"
+                                    ng-show="newUserForm.email.$touched || newUserForm.$submitted">
+                                    <span class="help-block" ng-message="required">Email is required.</span>
+                                    <span class="help-block" ng-message="pattern">Enter valid email address</span>
+                                    <span class="help-block" ng-message="maxlength">Email cannot be greater than 100 characters</span>
+                                    <span class="help-block" ng-message="unique">This email is already exists</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newUserForm.office_phone.$touched && newUserForm.office_phone.$invalid || newUserForm.office_phone.$invalid && newUserForm.$submitted }">
+                            <label class="col-md-2 control-label" for="office_phone">Office Phone <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="office_phone" ng-model="user.office_phone" class="form-control" id="office_phone" placeholder="Enter your office phone" ng-maxlength="20" ui-mask="999-999-9999"  ui-mask-placeholder ui-mask-placeholder-char="_" required>
+                                <div ng-messages="newUserForm.office_phone.$error"
+                                    ng-show="newUserForm.office_phone.$touched || newUserForm.$submitted">
+                                    <span class="help-block" ng-message="required">Office Phone is required.</span>
+                                    <span class="help-block" ng-message="maxlength">Office Phone cannot be greater than 20 characters</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newUserForm.mobile_phone.$touched && newUserForm.mobile_phone.$invalid || newUserForm.mobile_phone.$invalid && newUserForm.$submitted }">
+                            <label class="col-md-2 control-label" for="mobile_phone">Mobile Phone <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="mobile_phone" ng-model="user.mobile_phone" class="form-control" id="mobile_phone" placeholder="Enter your mobile phone" ng-maxlength="20" ui-mask="999-999-9999"  ui-mask-placeholder ui-mask-placeholder-char="_" required>
+                                <div ng-messages="newUserForm.mobile_phone.$error"
+                                    ng-show="newUserForm.mobile_phone.$touched || newUserForm.$submitted">
+                                    <span class="help-block" ng-message="required">Mobile Phone is required.</span>
+                                    <span class="help-block" ng-message="maxlength">Mobile Phone cannot be greater than 20 characters</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newUserForm.nfa.$touched && newUserForm.nfa.$invalid || newUserForm.nfa.$invalid && newUserForm.$submitted }">
+                            <label class="col-md-2 control-label" for="nfa">NFA# <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="nfa" ng-model="user.nfa" class="form-control" id="nfa" placeholder="Enter your firm name" ng-maxlength="20" required>
+                                <div ng-messages="newUserForm.nfa.$error"
+                                    ng-show="newUserForm.nfa.$touched || newUserForm.$submitted">
+                                    <span class="help-block" ng-message="required">NFA is required.</span>
+                                    <span class="help-block" ng-message="maxlength">NFA cannot be greater than 20 characters</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newUserForm.firm_name.$touched && newUserForm.firm_name.$invalid || newUserForm.firm_name.$invalid && newUserForm.$submitted }">
+                            <label class="col-md-2 control-label" for="firm_name">Firm Name <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="firm_name" ng-model="user.firm_name" class="form-control" id="firm_name" placeholder="Enter your firm name" ng-maxlength="20" required>
+                                <div ng-messages="newUserForm.firm_name.$error"
+                                    ng-show="newUserForm.firm_name.$touched || newUserForm.$submitted">
+                                    <span class="help-block" ng-message="required">Firm Name is required.</span>
+                                    <span class="help-block" ng-message="maxlength">Firm Name cannot be greater than 20 characters</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newUserForm.firm_nfa.$touched && newUserForm.firm_nfa.$invalid || newUserForm.firm_nfa.$invalid && newUserForm.$submitted }">
+                            <label class="col-md-2 control-label" for="firm_nfa">Firm NFA# <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="firm_nfa" ng-model="user.firm_nfa" class="form-control" id="firm_nfa" placeholder="Enter your firm NFA#" ng-maxlength="20" required>
+                                <div ng-messages="newUserForm.firm_nfa.$error"
+                                    ng-show="newUserForm.firm_nfa.$touched || newUserForm.$submitted">
+                                    <span class="help-block" ng-message="required">Firm NFA# is required.</span>
+                                    <span class="help-block" ng-message="maxlength">Firm NFA# cannot be greater than 20 characters</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- <div class="form-group form-md-line-input" ng-class="{ 'has-error': newUserForm.markets_traded.$touched && newUserForm.markets_traded.$invalid || newUserForm.markets_traded.$invalid && newUserForm.$submitted }"> -->
+                        <!--     <label class="col-md-2 control-label" for="markets_traded">Markets Traded <span class="required">*</span></label> -->
+                        <!--     <div class="col-md-10"> -->
+                        <!--         <select id="markets_traded" class="form-control" placeholder="Markets Traded" name="markets_traded" ng-model="user.markets_traded" required ng-options="trade.id as trade.text for trade in marketTraded"> -->
+                        <!--             <option value="">Select Markets Traded</option> -->
+                        <!--         </select> -->
+                        <!--         <div ng-messages="newUserForm.markets_traded.$error" -->
+                        <!--             ng-show="newUserForm.markets_traded.$touched || newUserForm.$submitted"> -->
+                        <!--             <span class="help-block" ng-message="required">Markets Traded is required.</span> -->
+                        <!--         </div> -->
+                        <!--     </div> -->    
+                        <!-- </div> -->
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newUserForm.biography.$touched && newUserForm.biography.$invalid || newUserForm.biography.$invalid && newUserForm.$submitted }">
+                            <label class="col-md-2 control-label" for="biography">Biography <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <textarea rows="3" name="biography" ng-model="user.biography" class="form-control" id="biography" placeholder="Enter your markets traded" ng-maxlength="255" required></textarea>
+                                <div ng-messages="newUserForm.biography.$error"
+                                    ng-show="newUserForm.biography.$touched || newUserForm.$submitted">
+                                    <span class="help-block" ng-message="required">Biography is required.</span>
+                                    <span class="help-block" ng-message="maxlength">Biography cannot be greater than 255 characters</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newUserForm.profile_img.$touched && newUserForm.profile_img.$invalid || newUserForm.profile_img.$invalid && newUserForm.$submitted }">
+                            <label class="col-md-2 control-label" for="profile_img">Profile Image <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input ngf-pattern="'image/*'" type="file" ngf-select name="profile_img" ng-model="user.profile_img" class="form-control" id="profile_img" placeholder="Click to select file" required></textarea>
+                                <div ng-messages="newUserForm.profile_img.$error"
+                                    ng-show="newUserForm.profile_img.$touched || newUserForm.$submitted">
+                                    <span class="help-block" ng-message="required">Profile Image is required.</span>
+                                </div>    
+                            </div>
+                        </div>
+                        <div class="row" ng-show="user.profile_img">
+                            <div class="col-sm-6 col-md-3 col-md-offset-2">
+                                <div class="thumbnail" style="width: 200px;">
+                                    <img class="img-responsive" ngf-thumbnail="user.profile_img" alt="Preview">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-9">
+                                <button type="submit" ladda="isLoading" class="btn green">Submit</button>
+                                <a href ui-sref="users" class="btn default">cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+        </div>
+        <!-- END VALIDATION STATES-->
+    </div>
+</div>

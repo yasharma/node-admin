@@ -1,0 +1,113 @@
+<div class="row fade-in-up">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-equalizer font-green-haze"></i>
+                    <span class="caption-subject font-green-haze bold uppercase">View Email Logs Info</span>
+                    <!-- <span class="caption-helper">some info...</span> -->
+                </div>
+                <div class="tools">
+                    <button ui-sref="emailLogs" class="btn default">Back</button>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <!-- BEGIN FORM-->
+                <form class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <!-- <h2 class="margin-bottom-20"> View User Info - Bob Nilson </h2> -->
+                        <h3 class="form-section">Email Logs Info</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Email:</label>
+                                    <div class="col-md-9">
+                                        <p class="form-control-static"> {{logs.email}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Type:</label>
+                                    <div class="col-md-9">
+                                        <p class="form-control-static"> {{logs.type}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row" >
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Date:</label>
+                                    <div class="col-md-9">
+                                        <p class="form-control-static"> {{logs.timestamp | date : 'medium'}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <!--/span-->
+                            
+                        </div>
+                        <h3 ng-if="logs.all_status.length > 0" class="form-section">Logs Details</h3>
+                        <div ng-if="logs.all_status.length > 0" class="row">
+                            <div class="col-md-12">
+                                <div class="portlet box green">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="icon-settings"></i>Detail Info
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <div class="table-scrollable">
+                                            <table class="table table-striped table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th> Type </th>
+                                                        <th> User Agent </th>
+                                                        <th> IP </th>
+                                                        <th> Longitude </th>
+                                                        <th> Latitude </th>
+                                                        <th> Date </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="info in logs.all_status">
+                                                        <td>{{info.type}}</td>
+                                                        <td>{{info.user_agent || '-'}}</td>
+                                                        <td>{{info.ip || '-'}}</td>
+                                                        <td>{{info.logtitude || '-'}}</td>
+                                                        <td>{{info.latitude || '-'}}</td>
+                                                        <td>{{info.timestamp | date: 'medium'}}</td>
+                                                    </tr>
+                                                    <tr ng-if="logs.all_status.length === 0"> 
+                                                        <td class="text-center" colspan="6">No Records</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class=" col-md-9">
+                                        <a href ui-sref="emailLogs" class="btn default">Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6"> </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+        </div>
+    </div>
+</div>      

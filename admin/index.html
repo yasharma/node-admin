@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" ng-app="mimicTrading">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+
+    <head>
+        <meta charset="utf-8" />
+        <title data-ng-bind="$state.current.data.pageTitle + ' | Admin'"></title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="css/admin_site_1.min.css">
+        <link id="ng_load_plugins_before" />
+        <link rel="stylesheet" href="css/admin_site_2.min.css">
+        <link rel="stylesheet" href="css/admin-style.css">
+        <link rel="shortcut icon" href="favicon.ico" /> </head>
+        
+    <body ng-controller="AppController" class="page-on-load" ng-class="{'login': (!$settings.hideLoginForm || !admin)}" ng-clack>
+        <div ng-spinner-bar class="page-spinner-bar">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+        <!-- BEGIN : LOGIN PAGE 5-1 -->
+        <div class="page-wrapper">
+            <div class="page-wrapper-row" ng-if="admin">
+                <div class="page-wrapper-top">
+                    <!-- BEGIN HEADER -->
+                    <div data-ng-include="'tpl/admin.header.html'" data-ng-controller="HeaderController" class="page-header"> </div>
+                    <!-- END HEADER -->
+                </div>
+            </div>
+            <!-- <header class="page-wrapper-row" ng-if="admin"></header> -->
+            <div class="page-wrapper-row" ng-class="{'full-height': admin}">
+                <div ng-class="{'page-wrapper-middle': admin}">
+                    <div class="page-container">
+                        <div ng-if="admin" data-ng-include="'tpl/page.header.html'" data-ng-controller="PageHeadController" class="page-head"> </div>
+                        <div class="custom-alerts alert alert-danger fade in" ng-if="server_error_message">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                            {{server_error_message}}
+                        </div>
+                        <div class="page-content">
+                            <div class="container">
+                                <div class="error_waraper_div" ui-view></div>
+                            </div>    
+                        </div>
+                    </div>    
+                </div>    
+            </div>
+            <div class="page-wrapper-row" ng-if="admin">
+                <div class="page-wrapper-bottom">
+                    <!-- BEGIN FOOTER -->
+                    <div data-ng-include="'tpl/admin.footer.html'" data-ng-controller="FooterController"> </div>
+                    <!-- END FOOTER -->
+                </div>
+            </div>
+        </div>    
+        <!-- END : LOGIN PAGE 5-1 -->
+        <!--[if lt IE 9]>
+        <script src="global/plugins/respond.min.js"></script>
+        <script src="global/plugins/excanvas.min.js"></script>
+        <![endif]-->
+        <!-- Javascript Plugins -->
+        <script src="js/admin-site.min.js"></script>
+        <script src="js/admin.app.min.js"></script>
+    </body>
+</html>

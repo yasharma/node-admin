@@ -1,0 +1,64 @@
+<div class="page-container-bg-solid fade-in-up">
+    <div class="inbox">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="inbox-body">
+                    <div class="inbox-content">
+                        <table ng-show="notifications.length > 0" class="table table-striped table-advance table-hover">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">
+                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                            <input type="checkbox" class="mail-group-checkbox" ng-checked="isChecked()" ng-click="toggleAll()" />
+                                            <span></span>
+                                        </label>
+                                        <div class="btn-group input-actions">
+                                            <a class="btn btn-sm blue btn-outline dropdown-toggle sbold" href="javascript:;" data-toggle="dropdown"> Actions
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a ng-click="markAsRead()">
+                                                        <i class="fa fa-pencil"></i> Mark as Read </a>
+                                                </li>
+                                                <!-- <li class="divider"> </li> -->
+                                                <li>
+                                                    <a ng-click="delete()">
+                                                        <i class="fa fa-trash-o"></i> Delete </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </th>
+                                    <th class="pagination-control" colspan="3">
+                                        <ul class="pagination-sm" uib-pagination ng-if="paging.count > paging.limit" ng-change="pageChanged()" items-per-page="paging.limit" total-items="paging.count" force-ellipses="forceEllipses" ng-model="paging.page" max-size="maxSize" boundary-link-numbers="true" rotate="false"></ul>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-class="{'unread' : notification.status === 1}" ng-repeat="notification in notifications" >
+                                    <td class="inbox-small-cells">
+                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                            <input type="checkbox" class="mail-checkbox" value="1" ng-checked="exists(notification.id, selected)" ng-click="toggle(notification.id, selected)" />
+                                            <span></span>
+                                        </label>
+                                    </td>
+                                    <td ng-click="goToNotificationUrl(notification)" class="view-message hidden-xs"> {{notification.sender_name}} </td>
+                                    <td ng-click="goToNotificationUrl(notification)" class="view-message "> {{notification.description || '-'}} </td>
+                                    <td class="view-message inbox-small-cells">
+                                        <span ng-show="notification.status === 1" class="label label-default">unread</span>
+                                    </td>
+                                    <td class="view-message text-right"> {{notification.created_date | date : 'shortTime'}} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div ng-if="notifications.length === 0" class="no-notification">
+                            <i class="fa fa-bell-o"></i>
+                            <span>No Notifications</span>
+                            <span>We will notify you, when new notification comes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    

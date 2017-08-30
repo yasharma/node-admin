@@ -1,0 +1,199 @@
+<div class="row fade-in-up">
+	<div class="col-md-12">
+		<div class="portlet light bordered">
+		    <div class="portlet-title">
+		        <div class="caption">
+		            <i class="icon-equalizer font-green-haze"></i>
+		            <span class="caption-subject font-green-haze bold uppercase">View Customer Info - {{customerinfo.first_name + ' ' + customerinfo.last_name}}</span>
+		            <!-- <span class="caption-helper">some info...</span> -->
+		        </div>
+		        <div class="tools">
+		            <button ui-sref="customers" class="btn default">Back</button>
+		        </div>
+		    </div>
+		    <div class="portlet-body form">
+		        <!-- BEGIN FORM-->
+		        <form class="form-horizontal" role="form">
+		            <div class="form-body">
+		                <!-- <h2 class="margin-bottom-20"> View User Info - Bob Nilson </h2> -->
+		                <h3 class="form-section">Person Info</h3>
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">First Name:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{customerinfo.first_name}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Last Name:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{customerinfo.last_name}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                </div>
+		                <!--/row-->
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Email:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{customerinfo.email}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Member Since:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{customerinfo.date_joined | date: format : 'dd/m/y'}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                </div>
+		                <!--/row-->
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Type:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{customerinfo.user_type}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Status:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static">  
+		                                	<status-label status="customerinfo.is_active"></status-label>
+		                                </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                </div>
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Verified:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{customerinfo.is_verified ? 'Verified':'Not Verified'}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                    <div class="col-md-6" ng-show="customerinfo.profile_img">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Profile Image:</label>
+		                            <div class="col-md-9">
+		                                <div class="thumbnail" style="width: 200px;">
+		                	            	<img class="img-responsive" ng-src="{{customerinfo.profile_img}}" alt="{{customerinfo.profile_img}}"/>
+		                	            </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                </div>
+		                <!-- <div class="row" ng-show="customerinfo.profile_img">
+		                	<div class="col-md-6">
+		                	    <div class="form-group">
+		                	        <label class="control-label col-md-3">Profile Image:</label>
+		                	        <div class="col-md-9">
+		                	        	<div class="thumbnail">
+		                	            	<img ng-src="{{customerinfo.profile_img}}" alt="{{customerinfo.profile_img}}"/>
+		                	            </div>
+		                	        </div>
+		                	    </div>
+		                	</div>
+		                </div> -->
+		                <!--/row-->
+		                <h3 class="form-section">Additional Info</h3>
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Phone:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{customerinfo.phone}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Address:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{customerinfo.address || '-'}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Address:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{customerinfo.address || '-'}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">City:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{customerinfo.city || '-'}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                </div>
+		                <!--/row-->
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">State or Province:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{customerinfo.state || '-'}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Zip / Postal Code:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{customerinfo.zip_code || '-'}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                </div>
+		            </div>
+		            <div class="form-actions">
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="row">
+		                            <div class="col-md-offset-3 col-md-9">
+		                                <button type="button" ng-click="goToEdit()" class="btn green">
+		                                    <i class="fa fa-pencil"></i> Edit</button>
+		                                <a href ui-sref="customers" class="btn default">Back</a>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="col-md-6"> </div>
+		                </div>
+		            </div>
+		        </form>
+		        <!-- END FORM-->
+		    </div>
+		</div>
+	</div>
+</div>		

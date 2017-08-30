@@ -1,0 +1,33 @@
+{
+    "node": true,
+    "esversion": 6,
+    "globals": {
+        "$": false,
+        "mimicTrading": false,
+        "mimicTrade": false,
+        "moment" : false,
+        "window": false,
+        "document": false,
+        "App":false,
+        "Layout": false,
+        "QuickSidebar": false,
+        "Demo":false,
+        "TableAjax": false,
+        "baseUrl": false,
+        "localStorage": false,
+        "_": false,
+        "TableAjax": false,
+        "navigator": false,
+        "initPage": false,
+        "WebAPI": false,
+        "requestBalance": false,
+        "WebSocket": false,
+        "sendMessage": false,
+        "processMessage": false,
+        "processInformationReport": false,
+        "Image": false,
+        "scrollToTop": false,
+        "-W058": true
+    },
+    "predef": ["angular"]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "mimic-trader",
+  "description": "mimic trading",
+  "main": "index.html",
+  "authors": [
+    "Yash Sharma"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "0.4.1",
+    "angular": "^1.6.4",
+    "angular-animate": "^1.6.4",
+    "angular-aria": "^1.6.4",
+    "angular-messages": "^1.6.4",
+    "angular-material": "^1.1.4",
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7",
+    "angular-local-storage": "^0.6.0",
+    "angular-ladda": "^0.4.3",
+    "jquery-migrate": "^3.0.0",
+    "bootstrap-hover-dropdown": "^2.2.1",
+    "jquery-slimscroll": "jquery-slimScroll#^1.3.8",
+    "blockUI": "jquery.blockUI#*",
+    "js-cookie": "^2.1.4",
+    "bootstrap-switch": "^3.3.4",
+    "angular-sanitize": "^1.6.4",
+    "angular-touch": "^1.6.4",
+    "oclazyload": "ocLazyLoad#^1.1.0",
+    "ui-bootstrap": "^2.5.0",
+    "angular-material-icons": "^0.7.1",
+    "ngSweetAlert": "angular-sweetalert#^1.1.2",
+    "ng-file-upload": "^12.2.13",
+    "angular-ui-mask": "^1.8.7",
+    "moment": "^2.18.1",
+    "ui-cropper": "^1.0.4"
+  },
+  "resolutions": {
+    "jquery": "~1.9.0",
+    "angular": "^1.6.4"
+  },
+  "devDependencies": {
+    "angular-bootstrap-multiselect": "https://github.com/bentorfs/angular-bootstrap-multiselect.git#^1.1.10"
+  }
+}

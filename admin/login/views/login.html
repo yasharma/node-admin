@@ -1,0 +1,52 @@
+ <!-- BEGIN LOGO -->
+<div class="login-body" ng-hide="isPageLoading">
+    <div class="logo">
+        <!-- <img src="/assets/images/mimictrader_logo_horiztonal.png" style="height: 41px;" alt="" /> -->
+    </div>
+    <!-- END LOGO -->
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+        <!-- BEGIN LOGIN FORM -->
+        <form class="login-form" name="loginForm" ng-submit="login(loginForm.$valid)" ng-show="!showForgetPasswordForm && !showRegisterPasswordForm" novalidate>
+            <div class="form-title">
+                <span class="form-title">Administration Login</span>
+                <!-- <span class="form-subtitle">Please login.</span> -->
+            </div>
+
+            <div class="alert alert-danger" ng-show="(loginForm.$invalid && loginForm.$submitted) || message">
+                <!-- <button class="close" ng-click="whenUserClose"></button> -->
+                <span> {{message || 'Email and Password is required' }} </span>
+            </div>
+            <div class="form-group">
+                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                <label class="control-label visible-ie8 visible-ie9">Email</label>
+                <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email" ng-model="user.email" required /> 
+            </div>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">Password</label>
+                <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" ng-model="user.password" required/> 
+            </div>
+            <div class="form-actions">
+                <button type="submit" ladda="isLoading" class="btn btn-green uppercase">Login</button>
+                <a href="javascript:;" ng-click="showForgetPasswordForm=true" class="forget-password">Forgot Password?</a>
+            </div>
+        </form>
+        <!-- END LOGIN FORM -->
+        <!-- BEGIN FORGOT PASSWORD FORM -->
+        <form class="forget-form" action="index.html" method="post" ng-show="showForgetPasswordForm">
+            <div class="form-title">
+                <span class="form-title">Forget Password ?</span>
+                <span class="form-subtitle">Enter your e-mail to reset it.</span>
+            </div>
+            <div class="form-group">
+                <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email" /> </div>
+            <div class="form-actions">
+                <button type="button" ng-click="showForgetPasswordForm=false" class="btn btn-green">Back</button>
+                <button type="submit" class="btn btn-green uppercase pull-right ladda-button" data-style="zoom-in">
+                    <span class="ladda-label">Submit</span>
+                </button>
+            </div>
+        </form>
+        <!-- END FORGOT PASSWORD FORM -->
+    </div>
+</div>

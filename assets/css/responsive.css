@@ -1,0 +1,65 @@
+/*Responsive Css*/
+@media(max-width:1023px){
+.container{max-width: 1170px;padding: 0 15px;width: 100%;}
+.strategiesHead > span{font-size: 13px;}
+.loginHeading{font-size: 18px;}
+.profilePage .profile-sidebar{padding-right:10px;}
+.profilePage .tabsMain .profileName{font-size: 12px;left: 10px;top: 16px;}
+.profilePage{padding: 20px 0;}
+}
+
+@media(max-width:979px){
+.tagLine {font-size: 25px;line-height: 35px;}
+.inner-tag{color: #000;font-size: 25px;line-height: 35px;}
+.trader-content-right > h2{font-size: 23px;margin-bottom: 10px;}
+.trader-content-right > p{font-size: 14px;line-height: 25px;}
+.trader-content-left > .fa {font-size: 90px;top: 40px;width: 120px;}
+.strategiesBoard{padding:20px 0 0;}
+.positionMain{padding:0;}
+.bullishcornHead span{font-size: 15px;}
+.bullishcornBoxes .typeBox span{font-size: 12px;}
+.bullishcornBoxes .typeBox p{font-size: 13px;}
+.bullishcornHead bullleft .fa{font-size: 20px;}
+.newstratgyListing .traderBoxes{margin: 10px;}
+.log-in{margin: 25px 0;}
+.log-in .loginBoxes{margin: 0 0 15px;}
+.centerCon{text-align: center;}
+.addCommentMain .scName{margin:0;}
+.profilePage .profile-sidebar{padding-right: 0;}
+}
+
+@media(max-width:767px){
+.tagLine{font-size: 20px;line-height: 30px;}
+.inner-tag{color: #000;font-size: 20px;line-height: 30px;}
+.allButtons{padding: 0;}
+.loginPara{color: #bac5ce;font-size: 13px;line-height: 21px;margin: 0 0 15px 0;}
+.log-in{margin:25px 0;}
+.loginHeading{font-size: 14px;}
+.profilePage .tabsMain .profileName{display: none;}
+.profilePage .tabsMain md-pagination-wrapper{right: auto !important;  left: 0 !important;}
+}
+
+@media(max-width:639px){
+.trader-content-left > .fa{top: 40px;position: relative;}
+.tagLine{font-size: 15px;line-height: 22px;text-align: center;}
+.inner-tag{font-size: 16px;line-height: 25px;text-align: center;}
+.trader-content-right > h2,.trader-content-right > p{text-align: center;}
+.trader-content-left > .fa{top: auto;margin: 25px auto 0;height: 65px;}
+.top-menu .navbar-nav > li > a{font-size: 14px;padding: 15px 10px;}
+.strategiesBoard .col-xs-6{width:100%;}
+.positionViews{margin-top: 15px;}
+.strategiesList{margin: 10px 0 5px;}
+.text-right.left{text-align:left;}
+.noSpacebtn .btn{margin:0;}
+.bullishcornBoxes{padding: 15px;}
+.bullishcornBoxes .typeBox{margin: 10px 0;}
+.log-in{margin: 15px 0;}
+.reviewsButtons.block{display: block;}
+.typeBox.viewData p{font-size:16px;}
+.strategiesPara p{text-align: justify;}
+.commentList .md-avatar{margin:0 5px 0 0 !important;width: 60px;}
+.commentList .md-list-item-text p{font-size:13px !important;}
+.liveTrade h2{font-size:26px;}
+.page-logo a img{height:auto!important;width:120px !important;}
+.top-menu.user_header_menu{position:absolute;right:60px;top:0;}
+}

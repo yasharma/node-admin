@@ -1,0 +1,195 @@
+<div class="row fade-in-up">
+	<div class="col-md-12">
+		<div class="portlet light bordered">
+		    <div class="portlet-title">
+		        <div class="caption">
+		            <i class="icon-equalizer font-green-haze"></i>
+		            <span class="caption-subject font-green-haze bold uppercase">View User Info - {{userinfo.first_name + ' ' + userinfo.last_name}}</span>
+		            <!-- <span class="caption-helper">some info...</span> -->
+		        </div>
+		        <div class="tools">
+		            <button type="button" ng-click="goBack()" class="btn default">Back</button>
+		        </div>
+		    </div>
+		    <div class="portlet-body form">
+		        <!-- BEGIN FORM-->
+		        <form class="form-horizontal" role="form">
+		            <div class="form-body">
+		                <!-- <h2 class="margin-bottom-20"> View User Info - Bob Nilson </h2> -->
+		                <h3 class="form-section">Person Info</h3>
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">First Name:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{userinfo.first_name}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Last Name:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{userinfo.last_name}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                </div>
+		                <!--/row-->
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Email:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{userinfo.email}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Member Since:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{userinfo.date_joined | date: format : 'dd/m/y'}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                </div>
+		                <!--/row-->
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Type:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{userinfo.user_type}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Active:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{userinfo.is_active ? 'Active' : 'In-Active'}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                </div>
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Verified:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{userinfo.is_verified ? 'Verified':'Not Verified'}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Biography:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{userinfo.biography}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                </div>
+		                <div class="row" ng-show="userinfo.profile_img">
+		                	<div class="col-md-6">
+		                	    <div class="form-group">
+		                	        <label class="control-label col-md-3">Profile Image:</label>
+		                	        <div class="col-md-9">
+		                	        	<div class="thumbnail" style="width: 200px;">
+		                	            	<img class="img-responsive" ng-src="{{userinfo.profile_img}}" alt="{{userinfo.profile_img}}"/>
+		                	            </div>
+		                	        </div>
+		                	    </div>
+		                	</div>
+		                </div>
+		                <!--/row-->
+		                <h3 class="form-section">Additional Info</h3>
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Office Phone:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{userinfo.office_phone}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!-- <div class="col-md-6"> -->
+		                    <!--     <div class="form-group"> -->
+		                    <!--         <label class="control-label col-md-3">Market Traded:</label> -->
+		                    <!--         <div class="col-md-9"> -->
+		                    <!--             <p class="form-control-static"> {{userinfo.markets_traded_name}} </p> -->
+		                    <!--         </div> -->
+		                    <!--     </div> -->
+		                    <!-- </div> -->
+		                </div>
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Mobile Phone:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{userinfo.mobile_phone}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">NFA#:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{userinfo.nfa}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                </div>
+		                <!--/row-->
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Firm Name:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{userinfo.firm_name}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                    <div class="col-md-6">
+		                        <div class="form-group">
+		                            <label class="control-label col-md-3">Firm NFA#:</label>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static"> {{userinfo.firm_nfa}} </p>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <!--/span-->
+		                </div>
+		            </div>
+		            <div class="form-actions">
+		                <div class="row">
+		                    <div class="col-md-6">
+		                        <div class="row">
+		                            <div class="col-md-offset-3 col-md-9">
+		                                <button type="button" ng-click="goToEdit()" class="btn green">
+		                                    <i class="fa fa-pencil"></i> Edit</button>
+		                                <button type="button" ng-click="goBack()" class="btn default">Back</button>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="col-md-6"> </div>
+		                </div>
+		            </div>
+		        </form>
+		        <!-- END FORM-->
+		    </div>
+		</div>
+	</div>
+</div>		
