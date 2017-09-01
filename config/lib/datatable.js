@@ -1,5 +1,7 @@
 'use strict';
 
+const moment = require('moment');
+
 exports.table = (status_list, recordsTotal, data) => {
 	
 	let result = [];
@@ -11,7 +13,7 @@ exports.table = (status_list, recordsTotal, data) => {
 				</label>`,
 			title: data[i].title,
 			type: data[i].type,
-			created_date: data[i].created_at,
+			created_date: moment(data[i].created_at).format('MMM D, YYYY'),
 			status: `<span class="label label-sm label-${status_list.class[data[i].status]}">${status_list.status[data[i].status]}</span>`,
 			action: `
 					<div class="btn-group btn-group-solid">

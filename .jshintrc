@@ -27,7 +27,8 @@
         "processInformationReport": false,
         "Image": false,
         "scrollToTop": false,
-        "-W058": true
+        "-W058": true,
+        "moment": true
     },
     "predef": ["angular"]
 }
