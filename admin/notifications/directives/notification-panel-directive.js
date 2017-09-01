@@ -5,13 +5,13 @@ mimicTrading.directive('notificationPanel', ['notificationSvr', '$location','$ro
 		return {
 			restrict: 'A',
 			link: function (scope, elem) {
-				notificationSvr.getNotificationList()
-				.then(({records, paging}) => {
-					scope.notifications = records;
-					return notificationSvr.getNotificationCount();
-				})
-				.then($rootScope.manageCount)
-				.catch(errors => console.log(errors));
+				// notificationSvr.getNotificationList()
+				// .then(({records, paging}) => {
+				// 	scope.notifications = records;
+				// 	return notificationSvr.getNotificationCount();
+				// })
+				// .then($rootScope.manageCount)
+				// .catch(errors => console.log(errors));
 			},
 			templateUrl: 'notifications/directives/notification-panel.html'
 		};

@@ -41,7 +41,7 @@ var TableAjax = function () {
                 "ajax": {
                     "url": baseUrl(options.url), // ajax source
                     "headers": {
-                        "Authorization": "Token " + JSON.parse(prefix('token'))
+                        "Authorization": "Bearer " + JSON.parse(prefix('token'))
                     }
                 },
                 "columns": options.columns

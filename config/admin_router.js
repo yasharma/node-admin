@@ -1,6 +1,6 @@
 'use strict';
 const path 	= require('path'),
-_ 			= require('lodash'),
+lo 			= require('lodash'),
 config 		= require(path.resolve(`./config/env/${process.env.NODE_ENV}`)),
 fs 			= require('fs');
 
@@ -15,7 +15,7 @@ fs.readdirSync(path.resolve('./controllers/Admin')).forEach(file => {
 module.exports = {
   	routes: [
   		{ url: '/login', method: ctrls.adminCtrl.login, type: 'POST' },
-  		//{ url: '/profile/:id', method: ctrls.profileCtrl.updateAccount, type: 'PUT' },
-  		//{ url: '/change_password/:id', method: ctrls.profileCtrl.changePassword, type: 'PUT' }
+  		{ url: '/cms/add', method: ctrls.cmsCtrl.add, type: 'POST' },
+  		{ url: '/cms/list', method: ctrls.cmsCtrl.list, type: 'POST' }
 	]
 };

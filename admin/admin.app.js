@@ -10,5 +10,6 @@ var mimicTrading = angular.module('mimicTrading', [
     'oc.lazyLoad',  
     'ngSanitize',
 	'angular-ladda',
-	'ui.mask'
+	'ui.mask',
+    'textAngular'
 ]);

@@ -1,0 +1,65 @@
+<div class="row fade-in-up">
+    <div class="col-md-12">
+        <!-- BEGIN VALIDATION STATES-->
+        <div class="portlet light portlet-fit portlet-form ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class=" icon-user font-green"></i>
+                    <span class="caption-subject font-green sbold uppercase">Add New CMS Section</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <!-- BEGIN FORM-->
+                <form novalidate ng-submit="new_cms(newCmsForm.$valid)" class="form-horizontal" name="newCmsForm" ng-keydown="clear($event.target.name, newCmsForm)">
+                    <div class="form-body">
+                        <div class="form-group form-md-line-input" 
+                        ng-class="{ 'has-error': newCmsForm.title.$touched && newCmsForm.title.$invalid || newCmsForm.title.$invalid && newCmsForm.$submitted }">
+                            <label class="col-md-2 control-label" for="title">Title <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="title" ng-model="cms.title" class="form-control" id="title" placeholder="Enter your cms title" required>
+                                <div ng-messages="newCmsForm.title.$error"
+                                    ng-show="newCmsForm.title.$touched || newCmsForm.$submitted">
+                                    <span class="help-block" ng-message="required">Title is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newCmsForm.type.$touched && newCmsForm.type.$invalid || newCmsForm.type.$invalid && newCmsForm.$submitted }">
+                            <label class="col-md-2 control-label" for="lastname">CMS Type <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <select id="type" class="form-control" name="type" ng-model="cms.type" required ng-options="type as type for type in cms_type">
+                                    <option value="">Select CMS Type</option>
+                                </select>
+                                <div ng-messages="newCmsForm.type.$error"
+                                    ng-show="newCmsForm.type.$touched || newCmsForm.$submitted">
+                                    <span class="help-block" ng-message="required">CMS Type is required.</span>
+                                </div>
+                            </div>
+                        </div>       
+                                 
+                        <div class="form-group form-md-line-input" ng-class="{ 'has-error': newCmsForm.description.$touched && newCmsForm.description.$invalid || newCmsForm.description.$invalid && newCmsForm.$submitted }">
+                            <label class="col-md-2 control-label" for="description">Description <span class="required">*</span></label>
+                            <div class="col-md-10">
+                                <!-- <textarea rows="3" name="description" ng-model="user.description" class="form-control" id="description" placeholder="Enter your markets traded" ng-maxlength="255" required></textarea> -->
+                                <text-angular ng-required="true" ng-model="cms.description"></text-angular>
+                                <div ng-messages="newCmsForm.description.$error"
+                                    ng-show="newCmsForm.description.$touched || newCmsForm.$submitted">
+                                    <span class="help-block" ng-message="required">Description is required.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-9">
+                                <button type="submit" ladda="isLoading" class="btn green">Submit</button>
+                                <a href ui-sref="cms" class="btn default">cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+        </div>
+        <!-- END VALIDATION STATES-->
+    </div>
+</div>

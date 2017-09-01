@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "build": "gulp build",
-    "nodemon": "nodemon -i node_modules/ -i bower_components/ -i build/ -i admin/ server.js"
+    "nodemon": "nodemon -i node_modules/ -i bower_components/ -i build/ server.js"
   },
   "author": "Yash Sharma",
   "license": "ISC",

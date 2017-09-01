@@ -11,7 +11,7 @@ mimicTrading.config(['$httpProvider', function($httpProvider){
                 var token = loginSrv.getToken();
                 
                 if (token) {
-                    config.headers.Authorization = 'Token '+ token;
+                    config.headers.Authorization = `Bearer ${token}`;
                     loginSrv.isLogged = true;
                 }
 	           	return config;
