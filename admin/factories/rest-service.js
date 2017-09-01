@@ -35,8 +35,9 @@ mimicTrading.factory('RestSvr', ['$http', '$window', '$httpParamSerializerJQLike
 				
 				return $q((resolve, reject) => {
 					$http(req).then(response => {
+						
 						resolve({
-							record: response.data.data
+							record: response.data.result
 						});
 					})
 					.catch(response => {
@@ -50,6 +51,32 @@ mimicTrading.factory('RestSvr', ['$http', '$window', '$httpParamSerializerJQLike
 			post: (apiUrl, data) => {
 				let req = {
 					method: 'POST',
+					url: baseUrl(apiUrl),
+				 	data: data
+				};
+				return $q( (resolve, reject) => {
+					$http(req).then(response => {
+						resolve({
+							result: response.data.message, 
+							user: response.data.user,
+							records: response.data.result
+						});
+					})
+					.catch(response => {
+						let message = 'Internal Server Error';
+						if( response.status === 404 ){
+							message = '404 Route not found';
+						}
+						reject({
+							message: response.data.message || response.data.detail || message,
+							status: response.status
+						});
+					});	
+				});
+			},
+			put: (apiUrl, data) => {
+				let req = {
+					method: 'PUT',
 					url: baseUrl(apiUrl),
 				 	data: data
 				};

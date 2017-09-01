@@ -31,7 +31,7 @@
 		                        <div class="form-group">
 		                            <label class="control-label col-md-3">Date:</label>
 		                            <div class="col-md-9">
-		                                <p class="form-control-static"> {{cms.date | date: format : 'dd/m/y'}}  </p>
+		                                <p class="form-control-static"> {{cms.created_at | date: format : 'dd/m/y'}}  </p>
 		                            </div>
 		                        </div>
 		                    </div>
@@ -39,11 +39,11 @@
 		                </div>
 		                <!--/row-->
 		                <div class="row">
-		                    <div class="col-md-12">
+		                    <div class="col-md-6">
 		                        <div class="form-group">
 		                            <label class="control-label col-md-3">Description:</label>
-		                            <div class="col-md-12">
-		                                <p class="form-control-static" ng-bind-html="cms.email">  </p>
+		                            <div class="col-md-9">
+		                                <p class="form-control-static" ng-bind-html="cms.description">  </p>
 		                            </div>
 		                        </div>
 		                    </div>

@@ -4,6 +4,7 @@ const path 	 	= require('path'),
 	lo 			= require('lodash'),
 	mongoose 	= require('mongoose'),
 	CMS 	 	= require(path.resolve('./models/Cms')),
+	datatable 	= require(path.resolve('./config/lib/datatable')),
   	config 		= require(path.resolve(`./config/env/${process.env.NODE_ENV}`)),
   	paginate    = require(path.resolve('./config/lib/paginate'));
 
@@ -22,6 +23,50 @@ exports.add = (req, res, next) => {
     cms.save()
     .then(result => res.json({success: true}))
     .catch(error => res.json({errors: error}));
+};
+
+exports.edit = (req, res, next) => {
+	if(!req.body._id) {
+		res.status(422).json({
+			errors: {
+				message: 'Title and type is required', 
+				success: false,
+			}	
+		});
+		return;
+	}	 
+    
+    
+    CMS.update({_id: req.body._id},{$set: { title: req.body.title, type: req.body.type, description: req.body.description }}, 
+    	function (error, result) {
+    		if(error){
+    			res.json({errors: error});
+    		}
+    		res.json({success: true});
+    	}
+    );
+};
+
+exports.view = (req, res, next) => {
+	if(!req.params.type) {
+		res.status(422).json({
+			errors: {
+				message: 'Type is required', 
+				success: false,
+			}	
+		});
+		return;
+	}	 
+    
+    
+    CMS.findOne({type: req.params.type}, 
+    	function (error, result) {
+    		if(error){
+    			res.json({errors: error});
+    		}
+    		res.json({success: true, result: result});
+    	}
+    );
 };
 
 exports.list = (req, res, next) => {
@@ -45,25 +90,9 @@ exports.list = (req, res, next) => {
 				true : "Active",
 				false : "InActive"	
 			}
-			
 		};
-		for (var i = result.records.length - 1; i >= 0; i--) {
-			result.records[i] = {
-				id:`<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-						<input name="id[]" type="checkbox" class="checkboxes" value="${result.records[i]._id}"/>
-						<span></span>
-					</label>`,
-				title: result.records[i].title,
-				type: result.records[i].type,
-				created_date: result.records[i].created_at,
-				status: `<span class="label label-sm label-${status_list.class[result.records[i].status]}">${status_list.status[result.records[i].status]}</span>`,
-				action: `<a href="#!/view-cms/${result.records[i].type}" class="btn btn-sm btn-outline grey-salsa"><i class="fa fa-search"></i> View</a>`
-			};
-		}
-		res.json({
-			recordsTotal: result.count,
-			data: result.records,
-			recordsFiltered: result.records.length
-		});
+		
+		let dataTableObj = datatable.table(status_list, result.count, result.records);
+		res.json(dataTableObj);
 	});
 };

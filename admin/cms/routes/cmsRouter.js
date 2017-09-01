@@ -53,7 +53,7 @@ mimicTrading.config(['$stateProvider',function($stateProvider){
 		data: {pageTitle: 'View CMS Detail'},
 		authenticate: true,
 		resolve: {
-		    detailObj: cmsResolver
+		    cms: cmsResolver
 		}
 	});
 }]);

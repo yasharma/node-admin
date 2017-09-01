@@ -8,8 +8,9 @@ mimicTrading.controller('cmsViewCtrl', ['$scope', '$state', 'RestSvr', '$rootSco
 			 */
 			appSvr.init();
 		});
-		$scope.cms = cms.records;
-
-		$scope.goToEdit = () => $state.go('cms',{id: $scope.cms.id});
+		
+		$scope.cms = cms.record;
+		
+		$scope.goToEdit = () => $state.go('editCms',{id: $scope.cms.type});
 	}
 ]);
