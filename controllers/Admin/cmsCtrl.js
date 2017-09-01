@@ -70,12 +70,23 @@ exports.view = (req, res, next) => {
 };
 
 exports.list = (req, res, next) => {
+	console.log(req.body);
+	let operation = {};
+	if( req.body.title ){
+		operation.title = {$regex: new RegExp(`${req.body.title}`), $options:"im"};
+	}
+	if( req.body.type ){
+		operation.type = {$regex: new RegExp(`${req.body.type}`), $options:"im"};
+	}
+	if( req.body.status ){
+		operation.status = req.body.status;
+	}
 	async.parallel({
 		count: (done) => {
 			CMS.count(done);
 		},
 		records: (done) => {
-			CMS.find(done);	
+			CMS.find(operation,done);	
 		}
 	}, (err, result) => {
 		if(err){
